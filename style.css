@@ -1,0 +1,273 @@
+.container {
+    width: 500px;
+    float: left;
+}
+
+.tabellaGioco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+div#lunghezza-navi-da-mettere {
+    order: -1;
+}
+
+@media screen and (min-width:1200px) {
+    .tabellaGioco {
+        flex-direction: row;
+    }
+
+    div#lunghezza-navi-da-mettere {
+        order: 0;
+    }
+}
+
+div#velocitaGioco,
+div#difficoltaGioco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+div#difficoltaGioco {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+div#velocitaGioco li,
+div#difficoltaGioco li {
+    background-color: #c1c1c1;
+    border-radius: 10px;
+    padding: 8px 5px;
+    cursor: pointer;
+}
+
+#media::before,
+#facile::before{
+    content: "\f129";
+    font-family: FontAwesome;
+    font-size: 10px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+#media:hover::after,
+#facile:hover::after {
+    content: "Il computer quando colpirà una parte della nave, cercherà attorno a quel punto il continuo della nave, come farebbe un'essere umano";
+    position: absolute;
+    bottom: -85px;
+    right: 38px;
+    width: 210px;
+    font-size: 13px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+#facile:hover::after {
+    content: "Il computer colpirà sempre e solo a caso";
+    bottom: -46px;
+}
+
+#lunghezza-navi-da-mettere ul {
+    list-style: none;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -30px;
+}
+
+#turnoNemico {
+    font-size: 25px;
+    font-weight: bold;
+    color: indianred;
+    opacity: 0;
+    transition: all 1s;
+}
+
+#lunghezza-navi-da-mettere ul {
+    list-style: none;
+}
+
+
+#contenitore-nemico,
+#contenitore {
+    position: relative;
+}
+
+#contenitore-nemico::after,
+#contenitore::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+    height: 358.8px;
+    background-color: skyblue;
+}
+
+#contenitore-nemico .col>div,
+#contenitore .col>div {
+    position: relative;
+    z-index: 3;
+}
+
+.row .col {
+    border: 1px solid black;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col>div {
+    border: 2px solid gray;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.col div.stai-scegliendo {
+    background-color: gray;
+}
+
+.nave {
+    border: 0 !important;
+    position: relative;
+}
+
+.row [class*=metti-nave-verticale] .nave {
+    background-color: rgba(68, 68, 68, 0.6);
+    width: 28px !important;
+    height: 40px !important;
+    top: -15px;
+    left: -8px;
+}
+
+.row .metti-nave-verticale.verticale-sx .nave {
+    border-start-end-radius: 20px;
+    border-start-start-radius: 20px;
+}
+
+.row .metti-nave-verticale.verticale-dx .nave {
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+}
+
+.row [class*=metti-nave-orizzontale] .nave {
+    background-color: rgba(68, 68, 68, 0.6);
+    width: 50px !important;
+    height: 28px !important;
+    top: -8px;
+    left: -18px;
+}
+
+.row .metti-nave-orizzontale.orizzontale-sx .nave {
+    border-end-start-radius: 20px;
+    border-start-start-radius: 20px;
+}
+
+.row .metti-nave-orizzontale.orizzontale-dx .nave {
+    border-end-end-radius: 20px;
+    border-start-end-radius: 20px;
+}
+
+.row [class*=metti-nave-nemica-orizzontale] .nave {
+
+    /*background-color: rgba(68, 68, 68, 0.6);
+    width: 50px!important;
+    height: 28px!important;
+    top: -8px;
+    left: -18px;*/
+
+
+    /* rimuovere il commento sopra e aggiungerlo
+    sotto per vedere le navi nemiche generate*/
+
+    width: 16px !important;
+    height: 16px !important;
+    top: -2px;
+    left: -2px;
+}
+
+.row [class*=metti-nave-nemica-verticale] .nave {
+
+    /*background-color: rgba(68, 68, 68, 0.6);
+    width: 28px!important;
+    height: 40px!important;
+    top: -15px;
+    left: -8px;*/
+
+
+    /* rimuovere il commento sopra e aggiungerlo
+    sotto per vedere le navi nemiche generate*/
+    width: 16px !important;
+    height: 16px !important;
+    top: -2px;
+    left: -2px;
+}
+
+.row [class*=metti-nave-nemica-orizzontale].mostra-navi .nave {
+    background-color: rgba(68, 68, 68, 0.6);
+    width: 50px !important;
+    height: 28px !important;
+    top: -8px;
+    left: -18px;
+}
+
+.row [class*=metti-nave-nemica-verticale].mostra-navi .nave {
+    background-color: rgba(68, 68, 68, 0.6);
+    width: 28px !important;
+    height: 40px !important;
+    top: -15px;
+    left: -8px;
+}
+
+.row [class*=metti-nave-nemica-verticale].verticale-sx.mostra-navi .nave {
+    border-start-end-radius: 20px;
+    border-start-start-radius: 20px;
+}
+
+.row [class*=metti-nave-nemica-verticale].verticale-dx.mostra-navi .nave {
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+}
+
+.row [class*=metti-nave-nemica-orizzontale].orizzontale-sx.mostra-navi .nave {
+    border-end-start-radius: 20px;
+    border-start-start-radius: 20px;
+}
+
+.row [class*=metti-nave-nemica-orizzontale].orizzontale-dx.mostra-navi .nave {
+    border-end-end-radius: 20px;
+    border-start-end-radius: 20px;
+}
+
+
+div.colpo-sparato {
+    background: white;
+    cursor: no-drop;
+}
+
+[class*=metti-nave-nemica-verticale].colpo-sparato .nave {
+    background-color: red !important;
+}
+
+[class*=metti-nave-nemica-orizzontale].colpo-sparato .nave {
+    background-color: red !important;
+}
+
+[class*=metti-nave-verticale].colpo-sparato .nave {
+    background-color: red !important;
+}
+
+[class*=metti-nave-orizzontale].colpo-sparato .nave {
+    background-color: red !important;
+}
